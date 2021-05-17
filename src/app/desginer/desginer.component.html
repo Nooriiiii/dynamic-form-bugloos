@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-7">
     <div class="card p-3">
       <div class="row">
         <div class="col">
@@ -45,102 +45,103 @@
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <div class="card">
-      <h5 class="card-header">{{ formMode | titlecase}}</h5>
-      <div class="card-body px-4">
+  <div class="col-5">
 
-        <form [formGroup]="form" (ngSubmit)="submit()">
-          <div class="row">
-            <div class="col-6 p-0">
-              <div class="mb-3">
-                <label for="key" class="form-label">Name</label>
-                <input class="form-control" id="key" formControlName="key" type="text">
+      <div class="card">
+        <h5 class="card-header">{{ formMode | titlecase}}</h5>
+        <div class="card-body px-4">
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+              <div class="col-6 p-0">
+                <div class="mb-3">
+                  <label for="key" class="form-label">Name</label>
+                  <input class="form-control" id="key" formControlName="key" type="text">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="label" class="form-label">Label</label>
+                  <input class="form-control" id="label" formControlName="label" type="text">
+                </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="label" class="form-label">Label</label>
-                <input class="form-control" id="label" formControlName="label" type="text">
+            <div class="row">
+              <div class="col-6 p-0">
+                <div class="mb-3 ">
+                  <label for="description" class="form-label">Description</label>
+                  <input class="form-control" id="description" formControlName="description" type="text">
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6 p-0">
-              <div class="mb-3 ">
-                <label for="description" class="form-label">Description</label>
-                <input class="form-control" id="description" formControlName="description" type="text">
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="validator" class="form-label">Validator</label>
+                  <input class="form-control" id="validator" formControlName="validator" type="text">
+                </div>
               </div>
-            </div>
 
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="validator" class="form-label">Validator</label>
-                <input class="form-control" id="validator" formControlName="validator" type="text">
+            </div>
+            <div class="row">
+              <div class="col-6 p-0">
+                <div class="mb-3">
+                  <label for="kordery" class="form-label">Order</label>
+                  <input class="form-control" id="order" formControlName="order" type="text">
+                </div>
               </div>
-            </div>
 
-          </div>
-          <div class="row">
-            <div class="col-6 p-0">
-              <div class="mb-3">
-                <label for="kordery" class="form-label">Order</label>
-                <input class="form-control" id="order" formControlName="order" type="text">
-              </div>
-            </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label for="controlType" class="form-label">Type</label>
 
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="controlType" class="form-label">Type</label>
+                  <select class="form-select" id="controlType" formControlName="controlType" type="text">
+                    <option value="textbox">Text</option>
+                    <option value="email">Email</option>
+                    <option value="number">Number</option>
+                    <option value="date">Date</option>
+                    <option value="dropdown">Dropdown</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="radio">Radio</option>
+                    <option value="textarea">Textarea</option>
+                  </select>
 
-                <select class="form-select" id="controlType" formControlName="controlType" type="text">
-                  <option value="textbox">Text</option>
-                  <option value="email">Email</option>
-                  <option value="number">Number</option>
-                  <option value="date">Date</option>
-                  <option value="dropdown">Dropdown</option>
-                  <option value="checkbox">Checkbox</option>
-                  <option value="radio">Radio</option>
-                  <option value="textarea">Textarea</option>
-                </select>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="row" *ngIf="['dropdown', 'radio'].indexOf(form.get('controlType')?.value) > -1">
-            <div class="col-12">
-              <div class="mb-3">
-                <label class="form-label">Options</label>
-
-
-                <ng-select [items]="editDropdownOptions" bindLabel="value" bindValue="key" [addTag]="addTagFn"
-                  [multiple]="true" formControlName="options">
-                </ng-select>
-
+                </div>
               </div>
             </div>
 
-          </div>
+            <div class="row" *ngIf="['dropdown', 'radio'].indexOf(form.get('controlType')?.value) > -1">
+              <div class="col-12">
+                <div class="mb-3">
+                  <label class="form-label">Options</label>
 
 
-          <div class="row">
-            <div class="col-6 p-0">
-              <div class="form-check  form-switch">
-                <input class="form-check-input" type="checkbox" id="required" formControlName="required">
-                <label class="form-check-label" for="required">
-                  Required?
-                </label>
+                  <ng-select [items]="editDropdownOptions" bindLabel="value" bindValue="key" [addTag]="addTagFn"
+                    [multiple]="true" formControlName="options">
+                  </ng-select>
+
+                </div>
               </div>
+
             </div>
 
-          </div>
+
+            <div class="row">
+              <div class="col-6 p-0">
+                <div class="form-check  form-switch">
+                  <input class="form-check-input" type="checkbox" id="required" formControlName="required">
+                  <label class="form-check-label" for="required">
+                    Required?
+                  </label>
+                </div>
+              </div>
+
+            </div>
 
 
-          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save</button>
-        </form>
+            <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Save</button>
+          </form>
+        </div>
       </div>
-    </div>
 
   </div>
 </div>
